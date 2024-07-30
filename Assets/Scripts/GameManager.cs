@@ -152,7 +152,6 @@ public class GameManager : MonoBehaviour
         var lifesPanel = life.parent;
         lifesPanel.Remove(life);
     }
-    
     private UIDocument FindUIDocument(string nameUiDocument)
     {
         var uiDocument = GameObject.Find(nameUiDocument)?.GetComponent<UIDocument>();
