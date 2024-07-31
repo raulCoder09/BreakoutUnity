@@ -1,0 +1,25 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Scripts/Ui/Game/Game.uss?fileID=7433441132597879392&amp;guid=dceb23f0407c147af9ecaed3d08abf4d&amp;type=3#Game" />
+    <engine:VisualElement name="Container" xml:id="Container" class="Container">
+        <engine:VisualElement name="Header" xml:id="Header" class="Header" >
+            <engine:VisualElement name="LivesPanel" xml:id="LivesPanel" class="LivesPanel" >
+                <engine:VisualElement name="Life1" xml:id="Life1" class="Lives" />
+                <engine:VisualElement name="Life2" xml:id="Life2" class="Lives"  />
+                <engine:VisualElement name="Life3" xml:id="Life3" class="Lives"  />
+            </engine:VisualElement>
+            <engine:VisualElement name="NumberLives" xml:id="NumberLives" class="NumberLives" >
+                <engine:Label name="LivesString" xml:id="LivesString" class="LivesString" text="Lives X3" />
+            </engine:VisualElement>
+            <engine:VisualElement name="ButtonsPanel" xml:id="ButtonsPanel" class="ButtonsPanel" >
+                <engine:Button name="ButtonMenu" xml:id="ButtonMenu" class="ButtonMenu" text="Pause" />
+            </engine:VisualElement>
+            <engine:VisualElement name="ScorePanel" xml:id="ScorePanel" class="ScorePanel" >
+                <engine:Label name="HighScore" xml:id="HighScore" class="HighScore" text="High Score: 0"  />
+                <engine:Label name="CurrentScore" xml:id="CurrentScore" class="CurrentScore" text="Current Score: 0"/>
+            </engine:VisualElement>
+        </engine:VisualElement>
+        <engine:VisualElement name="Body" xml:id="Body" class="Body">
+            <engine:VisualElement name="GamePanel" xml:id="GamePanel" class="GamePanel" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>
