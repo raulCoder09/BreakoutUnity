@@ -143,33 +143,18 @@ namespace _Scripts
                 }
             }
         }
-
-<<<<<<< HEAD:Assets/Scripts/GameManager.cs
-    internal void RemoveLife()
-    {
-        var life = UiController.GameRoot.Q<VisualElement>($"Life{_playerLives}");
-        if (life == null) return;
-        var lifesPanel = life.parent;
-        lifesPanel.Remove(life);
-    }
-    private UIDocument FindUIDocument(string nameUiDocument)
-    {
-        var uiDocument = GameObject.Find(nameUiDocument)?.GetComponent<UIDocument>();
-        if (uiDocument==null)
-=======
+        
         internal void RemoveLife()
->>>>>>> refactor:Assets/_Scripts/GameManager.cs
         {
             var life = UiController.GameRoot.Q<VisualElement>($"Life{_playerLives}");
             if (life == null) return;
             var livesPanel = life.parent;
             livesPanel.Remove(life);
         }
-    
-        private UIDocument FindUIDocument(string nameUiDocument)
-        {
-            var uiDocument = GameObject.Find(nameUiDocument)?.GetComponent<UIDocument>();
-            if (uiDocument==null)
+    private UIDocument FindUIDocument(string nameUiDocument)
+    {
+        var uiDocument = GameObject.Find(nameUiDocument)?.GetComponent<UIDocument>();
+        if (uiDocument==null)
             {
                 Debug.Log($"Error {nameUiDocument} UI Document");
             }
