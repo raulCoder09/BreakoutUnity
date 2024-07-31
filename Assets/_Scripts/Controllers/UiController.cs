@@ -1,5 +1,5 @@
+using _Scripts;
 using GameObjects;
-using ScriptableObjects;
 using Ui.GameOver;
 using UnityEngine;
 using UnityEngine.SceneManagement;

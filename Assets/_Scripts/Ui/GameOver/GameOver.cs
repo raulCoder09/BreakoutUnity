@@ -1,4 +1,4 @@
-using ScriptableObjects;
+using _Scripts;
 using UnityEngine;
 
 namespace Ui.GameOver

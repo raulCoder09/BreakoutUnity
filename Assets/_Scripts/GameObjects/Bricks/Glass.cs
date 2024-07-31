@@ -1,5 +1,5 @@
+using _Scripts;
 using Controllers;
-using ScriptableObjects;
 using UnityEngine;
 using UnityEngine.Events;
 

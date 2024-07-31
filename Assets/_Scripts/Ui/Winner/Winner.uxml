@@ -1,16 +1,16 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Scripts/Ui/Winner/Winner.uss?fileID=7433441132597879392&amp;guid=706308fb3598344cfaad67113b6eb8ef&amp;type=3#Winner" />
-    <engine:VisualElement name="Container" style="flex-grow: 1; background-color: rgb(0, 0, 0);">
-        <engine:VisualElement name="Header" style="flex-grow: 1; width: 100%; height: 10%;">
-            <engine:Label text="Your score: 0" name="Score" style="color: rgb(255, 255, 255); font-size: 20%; -unity-text-align: middle-center;" />
+    <engine:VisualElement name="Container" xml:id="Container" class="Container">
+        <engine:VisualElement name="Header" xml:id="Header" class="Header" >
+            <engine:Label text="Your score: 0" name="Score" xml:id="Score" />
         </engine:VisualElement>
-        <engine:VisualElement name="Body" style="flex-grow: 1; width: 100%; height: 80%; align-items: center; justify-content: center; align-self: center; align-content: center;">
-            <engine:Label text="You win!!!" name="Message" style="font-size: 60%; color: rgb(255, 255, 255);" />
+        <engine:VisualElement name="Body" xml:id="Body" class="Body">
+            <engine:Label text="You win!!!" name="Message" xml:id="Message" class="Message" />
         </engine:VisualElement>
-        <engine:VisualElement name="Footer" style="flex-grow: 1; width: 100%; height: 10%; align-items: center; justify-content: space-evenly; flex-direction: row; align-self: center; align-content: center;">
-            <engine:Button text="Next level" name="NextLevel" style="width: 20%; height: 60%;" />
-            <engine:Button text="Levels menu" name="LevelsMenu" style="width: 20%; height: 60%;" />
-            <engine:Button text="Exit" name="Exit" style="width: 20%; height: 60%;" />
+        <engine:VisualElement name="Footer" xml:id="Footer" class="Footer">
+            <engine:Button text="Next level" name="NextLevel" xml:id="NextLevel" class="NextLevel"/>
+            <engine:Button text="Levels menu" name="LevelsMenu" xml:id="LevelsMenu" class="LevelsMenu"/>
+            <engine:Button text="Exit" name="Exit" xml:id="Exit" class="Exit" />
         </engine:VisualElement>
     </engine:VisualElement>
 </engine:UXML>

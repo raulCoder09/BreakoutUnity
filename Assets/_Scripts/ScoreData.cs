@@ -1,8 +1,7 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ScriptableObjects
+namespace _Scripts
 {
     public class ScoreData : MonoBehaviour
     {
