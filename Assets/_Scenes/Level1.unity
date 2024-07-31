@@ -192,6 +192,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stone (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1530494051351899025, guid: ac1ade38c37454405a767b250261ef6f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6377318343264449397, guid: ac1ade38c37454405a767b250261ef6f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4
@@ -258,6 +262,10 @@ PrefabInstance:
     - target: {fileID: 939397130355309295, guid: 81a8b9deb95084d009a1bda98cfcb131, type: 3}
       propertyPath: m_Name
       value: Glass (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 939397130355309295, guid: 81a8b9deb95084d009a1bda98cfcb131, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5461350621230651194, guid: 81a8b9deb95084d009a1bda98cfcb131, type: 3}
       propertyPath: m_LocalPosition.x
@@ -361,6 +369,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wood
       objectReference: {fileID: 0}
+    - target: {fileID: 7677649482621294223, guid: 187aef273617f4f91b6ec7529624526f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -382,6 +394,10 @@ PrefabInstance:
     - target: {fileID: 939397130355309295, guid: 81a8b9deb95084d009a1bda98cfcb131, type: 3}
       propertyPath: m_Name
       value: Glass (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 939397130355309295, guid: 81a8b9deb95084d009a1bda98cfcb131, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5461350621230651194, guid: 81a8b9deb95084d009a1bda98cfcb131, type: 3}
       propertyPath: m_LocalPosition.x
@@ -524,6 +540,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wood (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7677649482621294223, guid: 187aef273617f4f91b6ec7529624526f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -545,6 +565,10 @@ PrefabInstance:
     - target: {fileID: 939397130355309295, guid: 81a8b9deb95084d009a1bda98cfcb131, type: 3}
       propertyPath: m_Name
       value: Glass (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 939397130355309295, guid: 81a8b9deb95084d009a1bda98cfcb131, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5461350621230651194, guid: 81a8b9deb95084d009a1bda98cfcb131, type: 3}
       propertyPath: m_LocalPosition.x
@@ -613,6 +637,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Glass
       objectReference: {fileID: 0}
+    - target: {fileID: 939397130355309295, guid: 81a8b9deb95084d009a1bda98cfcb131, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5461350621230651194, guid: 81a8b9deb95084d009a1bda98cfcb131, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -669,6 +697,10 @@ PrefabInstance:
     - target: {fileID: 1530494051351899025, guid: ac1ade38c37454405a767b250261ef6f, type: 3}
       propertyPath: m_Name
       value: Stone (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1530494051351899025, guid: ac1ade38c37454405a767b250261ef6f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6377318343264449397, guid: ac1ade38c37454405a767b250261ef6f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -772,6 +804,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wood (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7677649482621294223, guid: 187aef273617f4f91b6ec7529624526f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -834,6 +870,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wood (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7677649482621294223, guid: 187aef273617f4f91b6ec7529624526f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -855,6 +895,10 @@ PrefabInstance:
     - target: {fileID: 1530494051351899025, guid: ac1ade38c37454405a767b250261ef6f, type: 3}
       propertyPath: m_Name
       value: Stone (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1530494051351899025, guid: ac1ade38c37454405a767b250261ef6f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6377318343264449397, guid: ac1ade38c37454405a767b250261ef6f, type: 3}
       propertyPath: m_LocalPosition.x

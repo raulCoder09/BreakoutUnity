@@ -1,11 +1,10 @@
-using _Scripts;
 using GameObjects;
 using Ui.GameOver;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-namespace Controllers
+namespace _Scripts.Controllers
 {
     public class UiController : MonoBehaviour
     {
@@ -258,7 +257,7 @@ namespace Controllers
                 var buttonTryAgain = _loserRoot.Q<Button>("TryAgain");
                 if (buttonTryAgain!=null)
                 {
-                    buttonTryAgain.clicked += StartCurrentLevel;
+                    buttonTryAgain.clicked += TryAgain;
                 }
 
                 var buttonExit = _loserRoot.Q<Button>("Exit");
@@ -385,8 +384,42 @@ namespace Controllers
         {
             GameManager.Mode=evtNewValue;
         }
-        private void StartCurrentLevel()
+        private void TryAgain()
         {
+            var livesPanel = _gameRoot.Q<VisualElement>("LivesPanel");
+            var life1 = _gameRoot.Q<VisualElement>("Life1");
+            if (life1==null)
+            {
+                life1 = new VisualElement
+                {
+                    name = "Life1"
+                };
+                life1.AddToClassList("Lives");
+                livesPanel.Add(life1);
+            }
+            var life2 = _gameRoot.Q<VisualElement>("Life2");
+            if (life2==null)
+            {
+                life2 = new VisualElement
+                {
+                    name = "Life2"
+                };
+                life2.AddToClassList("Lives");
+                livesPanel.Add(life2);
+            }
+            var life3 = _gameRoot.Q<VisualElement>("Life3");
+            if (life3==null)
+            {
+                life3 = new VisualElement
+                {
+                    name = "Life3"
+                };
+                life3.AddToClassList("Lives");
+                livesPanel.Add(life3);
+            }
+
+
+            
             var currentScene = SceneManager.GetActiveScene();
             var sceneName = currentScene.name;
             if (sceneName==$"Level{_levelNumber}")
@@ -493,6 +526,37 @@ namespace Controllers
         
         private void GoToNextLevel()
         {
+            var livesPanel = _gameRoot.Q<VisualElement>("LivesPanel");
+            var life1 = _gameRoot.Q<VisualElement>("Life1");
+            if (life1==null)
+            {
+                life1 = new VisualElement
+                {
+                    name = "Life1"
+                };
+                life1.AddToClassList("Lives");
+                livesPanel.Add(life1);
+            }
+            var life2 = _gameRoot.Q<VisualElement>("Life2");
+            if (life2==null)
+            {
+                life2 = new VisualElement
+                {
+                    name = "Life2"
+                };
+                life2.AddToClassList("Lives");
+                livesPanel.Add(life2);
+            }
+            var life3 = _gameRoot.Q<VisualElement>("Life3");
+            if (life3==null)
+            {
+                life3 = new VisualElement
+                {
+                    name = "Life3"
+                };
+                life3.AddToClassList("Lives");
+                livesPanel.Add(life3);
+            }
             if (_levelNumber<=5)
             {
                 GameManager.PlayerLives = 3;
