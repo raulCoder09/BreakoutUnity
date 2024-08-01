@@ -115,7 +115,7 @@ namespace _Scripts.Controllers
         {
             HideAllScreens();
             _welcomeRoot.style.display = DisplayStyle.Flex;
-            _optionsRoot.Q<DropdownField>("Mode").value = "Normal";
+            _optionsRoot.Q<DropdownField>("Mode").value = "Easy";
         }
         
         private static void HideAllScreens()

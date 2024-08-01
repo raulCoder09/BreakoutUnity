@@ -1,5 +1,7 @@
 using _Scripts.Controllers;
+using Assets._Scripts;
 using Controllers;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -7,6 +9,8 @@ namespace _Scripts
 {
     public class GameManager : MonoBehaviour
     {
+        [SerializeField] private GameData gameData;
+        [SerializeField] private DataManager dataManager;
         private UIDocument _gameUIDocument;
         private VisualElement _gameRoot;
     
@@ -109,24 +113,39 @@ namespace _Scripts
 
         private void Start()
         {
-            //scores.Load();
+            //loadData
+            for (var i = 0 ; i < 5 ; i++)
+            {
+                string key = $"HighScoreLevel{i}";
+                if (PlayerPrefs.HasKey(key))
+                {
+                    ScoreData.HighScoreData[i] = PlayerPrefs.GetInt(key);
+                }
+                else
+                {
+                    ScoreData.HighScoreData[i] = 0; 
+                }
+            }
             ScoreData.CurrentScoreData[UiController.LevelNumber-1] = 0;
             _gameRoot.Q
                     <Label>("CurrentScore").text = $"Current score: {ScoreData.CurrentScoreData[UiController.LevelNumber-1]}";
             _gameRoot.Q<Label>("HighScore").text = $"High score: {ScoreData.HighScoreData[UiController.LevelNumber-1]}";
         }
 
-        private void Update()
+        private void Update( )
         {
-            _gameRoot.Q<Label>("CurrentScore").text = $"Current score: {ScoreData.CurrentScoreData[UiController.LevelNumber-1]}";
+            int levelIndex = UiController.LevelNumber - 1;
+
+            _gameRoot.Q<Label>("CurrentScore").text = $"Current score: {ScoreData.CurrentScoreData[levelIndex]}";
             _gameRoot.Q<Label>("LivesString").text = $"Lives X{_playerLives}";
-            if (ScoreData.CurrentScoreData[UiController.LevelNumber-1]>ScoreData.HighScoreData[UiController.LevelNumber-1])
+
+            if (ScoreData.CurrentScoreData[levelIndex] > ScoreData.HighScoreData[levelIndex])
             {
-                ScoreData.HighScoreData[UiController.LevelNumber-1] = ScoreData.CurrentScoreData[UiController.LevelNumber-1];
-                _gameRoot.Q<Label>("HighScore").text = $"High score: {ScoreData.HighScoreData[UiController.LevelNumber-1]}";
+                ScoreData.HighScoreData[levelIndex] = ScoreData.CurrentScoreData[levelIndex];
+                _gameRoot.Q<Label>("HighScore").text = $"High score: {ScoreData.HighScoreData[levelIndex]}";
+
+                PlayerPrefs.SetInt($"HighScoreLevel{levelIndex}",ScoreData.HighScoreData[levelIndex]);
             }
-            //scores.Save();
-        
             if (_isInterfaceGameActive && _isGameStarted)
             {
                 _bricks = GameObject.Find("Bricks");
@@ -135,16 +154,16 @@ namespace _Scripts
                     _bricksCount = _bricks.transform.childCount;
                 }
 
-                if (_bricksOnLevel==0||_bricksCount==0)
+                if (_bricksOnLevel == 0 || _bricksCount == 0)
                 {
                     Destroy(GameObject.Find("GameObjects"));
                     Destroy(GameObject.Find("Ball"));
                     UiController.ShowWin();
-                    //ToDo game time
+                    // ToDo: guardar el tiempo de juego
                 }
             }
         }
-        
+
         internal void RemoveLife()
         {
             var life = UiController.GameRoot.Q<VisualElement>($"Life{_playerLives}");

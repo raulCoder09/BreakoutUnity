@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace _Scripts
 {
-    public class ScoreData : MonoBehaviour
+    public class ScoreData 
     {
         [SerializeField]private static List<int> _highScoreData = new List<int>(5){0,0,0,0,0};
         internal static List<int> HighScoreData

@@ -7,7 +7,7 @@ namespace GameObjects
 {
     public class Ball : MonoBehaviour
     { 
-        private static float _speedBall = 20.0f;
+        private static float _speedBall = 25.0f;
 
         internal static float SpeedBall
         {
