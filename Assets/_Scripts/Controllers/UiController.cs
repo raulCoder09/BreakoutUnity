@@ -1,6 +1,7 @@
 using GameObjects;
 using Ui.GameOver;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
@@ -115,7 +116,26 @@ namespace _Scripts.Controllers
         {
             HideAllScreens();
             _welcomeRoot.style.display = DisplayStyle.Flex;
-            _optionsRoot.Q<DropdownField>("Mode").value = "Easy";
+            
+            if (PlayerPrefs.HasKey("ModeGame"))
+            {
+                GameManager.Mode = PlayerPrefs.GetString("ModeGame");
+                _optionsRoot.Q<DropdownField>("Mode").value= PlayerPrefs.GetString("ModeGame");
+            }
+            else
+            {
+                GameManager.Mode = "Easy";
+                _optionsRoot.Q<DropdownField>("Mode").value = GameManager.Mode;
+            }
+            if (PlayerPrefs.HasKey("SpeedBall"))
+            {
+                _optionsRoot.Q<Slider>("Speed").value = PlayerPrefs.GetFloat("SpeedBall");
+                Ball.SpeedBall = PlayerPrefs.GetFloat("SpeedBall");
+            }
+            else
+            {
+                Ball.SpeedBall = 26.0f;
+            }
         }
         
         private static void HideAllScreens()
@@ -378,11 +398,13 @@ namespace _Scripts.Controllers
         private void ChangeSpeed(float evtNewValue)
         {
             Ball.SpeedBall = evtNewValue;
+            PlayerPrefs.SetFloat("SpeedBall",Ball.SpeedBall);
         }
 
         private void ChangeMode(string evtNewValue)
         {
             GameManager.Mode=evtNewValue;
+            PlayerPrefs.SetString("ModeGame",GameManager.Mode);
         }
         private void TryAgain()
         {
