@@ -28,15 +28,15 @@ namespace _Scripts
             set => finalScore = value;
         }
         [SerializeField]
-        private float speed;
+        private float speed=26.0f;
         internal float Speed{
             get => speed;
             set => speed = value;
         }
         [SerializeField]
-        private int difficulty;
+        private string difficulty= "Easy";
 
-        internal int Difficulty {
+        internal string Difficulty {
             get => difficulty; 
             set => difficulty = value; 
         }

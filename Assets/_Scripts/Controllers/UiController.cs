@@ -119,28 +119,14 @@ namespace _Scripts.Controllers
             _welcomeRoot.style.display = DisplayStyle.Flex;
 
             _gameOverRoot.Q<Label>("FinalScore").text = $"Your score: {gameData.FinalScore}";
-            
 
-            if (PlayerPrefs.HasKey("ModeGame"))
-            {
-                GameManager.Mode = PlayerPrefs.GetString("ModeGame");
-                _optionsRoot.Q<DropdownField>("Mode").value= PlayerPrefs.GetString("ModeGame");
-            }
-            else
-            {
-                GameManager.Mode = "Easy";
-                _optionsRoot.Q<DropdownField>("Mode").value = GameManager.Mode;
-            }
-
-            if (PlayerPrefs.HasKey("SpeedBall"))
-            {
-                _optionsRoot.Q<Slider>("Speed").value = PlayerPrefs.GetFloat("SpeedBall");
-                Ball.SpeedBall = PlayerPrefs.GetFloat("SpeedBall");
-            }
-            else
-            {
-                Ball.SpeedBall = 26.0f;
-            }
+            //gameData.Difficulty = "Easy";
+            GameManager.Mode = gameData.Difficulty;
+            _optionsRoot.Q<DropdownField>("Mode").value= gameData.Difficulty;
+            //gameData.Speed = 25.0f;
+            _optionsRoot.Q<Slider>("Speed").value = gameData.Speed;
+            Ball.SpeedBall = gameData.Speed;
+           
         }
         
         private static void HideAllScreens()
@@ -404,13 +390,13 @@ namespace _Scripts.Controllers
         private void ChangeSpeed(float evtNewValue)
         {
             Ball.SpeedBall = evtNewValue;
-            PlayerPrefs.SetFloat("SpeedBall",Ball.SpeedBall);
+            gameData.Speed = Ball.SpeedBall;
         }
 
         private void ChangeMode(string evtNewValue)
         {
             GameManager.Mode=evtNewValue;
-            PlayerPrefs.SetString("ModeGame",GameManager.Mode);
+            gameData.Difficulty = GameManager.Mode;
         }
         private void TryAgain()
         {
