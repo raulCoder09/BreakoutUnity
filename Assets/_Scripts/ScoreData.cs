@@ -5,7 +5,7 @@ namespace _Scripts
 {
     public class ScoreData 
     {
-        [SerializeField]private static List<int> _highScoreData = new List<int>(5){0,0,0,0,0};
+        private static List<int> _highScoreData = new List<int>(5){0,0,0,0,0};
         internal static List<int> HighScoreData
         {
             get => _highScoreData;
@@ -16,7 +16,7 @@ namespace _Scripts
             _highScoreData.Add(highScoreData);
         }
         
-        [SerializeField]private static List<int> _currentScoreData = new List<int>(5){0,0,0,0,0};
+        private static List<int> _currentScoreData = new List<int>(5){0,0,0,0,0};
         internal static List<int> CurrentScoreData
         {
             get => _currentScoreData;

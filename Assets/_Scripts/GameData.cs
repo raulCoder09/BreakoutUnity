@@ -1,10 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu(fileName = "GameData",menuName = "ScriptableObjects/GameData",order = 1)]
 public class GameData : ScriptableObject
 {
     [SerializeField]
-    private int[] _levelsScores;
-    internal int[] LevelsScores {
+    private List<int> _levelsScores= new List<int>(5) { 0,1,2,3,4 };
+    internal List<int> LevelsScores {
         get => _levelsScores;
         set => _levelsScores = value;
     }

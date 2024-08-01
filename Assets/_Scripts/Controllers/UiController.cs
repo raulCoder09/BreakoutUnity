@@ -116,7 +116,12 @@ namespace _Scripts.Controllers
         {
             HideAllScreens();
             _welcomeRoot.style.display = DisplayStyle.Flex;
-            
+
+            if (PlayerPrefs.HasKey("FinalScore"))
+            {
+                _gameOverRoot.Q<Label>("FinalScore").text = $"Your score: {PlayerPrefs.GetInt("FinalScore")}";
+            }
+
             if (PlayerPrefs.HasKey("ModeGame"))
             {
                 GameManager.Mode = PlayerPrefs.GetString("ModeGame");
@@ -127,6 +132,7 @@ namespace _Scripts.Controllers
                 GameManager.Mode = "Easy";
                 _optionsRoot.Q<DropdownField>("Mode").value = GameManager.Mode;
             }
+
             if (PlayerPrefs.HasKey("SpeedBall"))
             {
                 _optionsRoot.Q<Slider>("Speed").value = PlayerPrefs.GetFloat("SpeedBall");
@@ -391,6 +397,7 @@ namespace _Scripts.Controllers
                 SceneManager.LoadScene($"Level{_levelNumber}");
                 _gameOverRoot.style.display = DisplayStyle.Flex;
                 _gameOverRoot.Q<Label>("FinalScore").text = $"Your score: {GameOver.TotalScore()}";
+                PlayerPrefs.SetInt("FinalScore",GameOver.TotalScore());
             }
 
         }
