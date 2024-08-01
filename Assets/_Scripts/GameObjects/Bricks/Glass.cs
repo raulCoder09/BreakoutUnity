@@ -8,6 +8,7 @@ namespace GameObjects.Bricks
 {
     public class Glass : MonoBehaviour
     {
+        [SerializeField] private GameData gameData;
         protected int _resistance;
         internal int Resistance
         {
@@ -72,7 +73,7 @@ namespace GameObjects.Bricks
         {
             if (_resistance <= 0)
             {
-                ScoreData.CurrentScoreData[UiController.LevelNumber-1] += BlockPoints;
+                gameData.CurrentScoreData[UiController.LevelNumber-1] += BlockPoints;
                 _gameManager.BricksOnLevel--;
                 Destroy(gameObject);
             }

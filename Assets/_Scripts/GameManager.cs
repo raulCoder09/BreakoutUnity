@@ -1,7 +1,5 @@
 using _Scripts.Controllers;
 using Assets._Scripts;
-using Controllers;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -50,7 +48,7 @@ namespace _Scripts
                 if (_playerLives==0)
                 {
                     Destroy(GameObject.Find("GameObjects"));
-                    UiController.ShowLoser();
+                    UiController.ShowLoser(gameData);
                     //ToDo game time
                 }
             
@@ -119,32 +117,28 @@ namespace _Scripts
                 string key = $"HighScoreLevel{i}";
                 if (PlayerPrefs.HasKey(key))
                 {
-                    ScoreData.HighScoreData[i] = PlayerPrefs.GetInt(key);
+                    _gameRoot.Q<Label>("HighScore").text = $"High score: {gameData.HighScoreData[UiController.LevelNumber-1]}";
                 }
                 else
                 {
-                    ScoreData.HighScoreData[i] = 0; 
+                    gameData.HighScoreData[i] = 0; 
                 }
             }
-            ScoreData.CurrentScoreData[UiController.LevelNumber-1] = 0;
-            _gameRoot.Q
-                    <Label>("CurrentScore").text = $"Current score: {ScoreData.CurrentScoreData[UiController.LevelNumber-1]}";
-            _gameRoot.Q<Label>("HighScore").text = $"High score: {ScoreData.HighScoreData[UiController.LevelNumber-1]}";
+            gameData.CurrentScoreData[UiController.LevelNumber-1] = 0;
+            _gameRoot.Q<Label>("CurrentScore").text = $"Current score: {gameData.CurrentScoreData[UiController.LevelNumber-1]}";
         }
 
         private void Update( )
         {
-            int levelIndex = UiController.LevelNumber - 1;
-
-            _gameRoot.Q<Label>("CurrentScore").text = $"Current score: {ScoreData.CurrentScoreData[levelIndex]}";
+            var levelIndex = UiController.LevelNumber - 1;
+            _gameRoot.Q<Label>("CurrentScore").text = $"Current score: {gameData.CurrentScoreData[levelIndex]}";
             _gameRoot.Q<Label>("LivesString").text = $"Lives X{_playerLives}";
 
-            if (ScoreData.CurrentScoreData[levelIndex] > ScoreData.HighScoreData[levelIndex])
+            if (gameData.CurrentScoreData[levelIndex] > gameData.HighScoreData[levelIndex])
             {
-                ScoreData.HighScoreData[levelIndex] = ScoreData.CurrentScoreData[levelIndex];
-                _gameRoot.Q<Label>("HighScore").text = $"High score: {ScoreData.HighScoreData[levelIndex]}";
-
-                PlayerPrefs.SetInt($"HighScoreLevel{levelIndex}",ScoreData.HighScoreData[levelIndex]);
+                gameData.HighScoreData[levelIndex] = gameData.CurrentScoreData[levelIndex];
+                _gameRoot.Q<Label>("HighScore").text = $"High score: {gameData.HighScoreData[levelIndex]}";
+                // PlayerPrefs.SetInt($"HighScoreLevel{levelIndex}",ScoreData.HighScoreData[levelIndex]);
             }
             if (_isInterfaceGameActive && _isGameStarted)
             {
@@ -158,7 +152,7 @@ namespace _Scripts
                 {
                     Destroy(GameObject.Find("GameObjects"));
                     Destroy(GameObject.Find("Ball"));
-                    UiController.ShowWin();
+                    UiController.ShowWin(gameData);
                     // ToDo: guardar el tiempo de juego
                 }
             }

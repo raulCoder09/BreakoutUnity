@@ -9,6 +9,7 @@ namespace _Scripts.Controllers
 {
     public class UiController : MonoBehaviour
     {
+        [SerializeField] private GameData gameData;
         private static UIDocument _gameUIDocument;
         private static VisualElement _gameRoot;
         public static VisualElement GameRoot 
@@ -372,20 +373,20 @@ namespace _Scripts.Controllers
             }
         }
         
-        internal static void ShowLoser()
+        internal static void ShowLoser(GameData gameData)
         {
             HideAllScreens();
-            _loserRoot.Q<Label>("Score").text = $"Your score: {ScoreData.CurrentScoreData[LevelNumber-1]}";
-            _loserRoot.Q<Label>("HighScoreLevel").text = $"High score level: {LevelNumber}: {ScoreData.HighScoreData[LevelNumber-1]}";
+            _loserRoot.Q<Label>("Score").text = $"Your score: {gameData.CurrentScoreData[LevelNumber-1]}";
+            _loserRoot.Q<Label>("HighScoreLevel").text = $"High score level: {LevelNumber}: {gameData.HighScoreData[LevelNumber-1]}";
             _loserRoot.style.display = DisplayStyle.Flex;
             _loserUiActive = true;
         }
-        internal static void ShowWin()
+        internal static void ShowWin(GameData gameData)
         {
             HideAllScreens();
             if (_levelNumber<5)
             {
-                _winnerRoot.Q<Label>("Score").text = $"Your score: {ScoreData.CurrentScoreData[LevelNumber-1]}";
+                _winnerRoot.Q<Label>("Score").text = $"Your score: {gameData.CurrentScoreData[LevelNumber-1]}";
                 _winnerRoot.style.display = DisplayStyle.Flex;
                 SceneManager.LoadScene($"Level{_levelNumber}");
                 _levelNumber++;
@@ -456,7 +457,7 @@ namespace _Scripts.Controllers
                 SceneManager.LoadScene($"Level{_levelNumber}");
             }
             GameManager.PlayerLives = 3;
-            ScoreData.CurrentScoreData[LevelNumber-1]= 0;
+            gameData.CurrentScoreData[LevelNumber-1]= 0;
             ShowInterfaceGame();
             GameManager.IsGameStarted = false;
         }
@@ -483,8 +484,8 @@ namespace _Scripts.Controllers
                 SceneManager.LoadScene($"Level1");
             }
             GameManager.PlayerLives = 3;
-            _gameRoot.Q<Label>("HighScore").text = $"High score: {ScoreData.HighScoreData[LevelNumber-1]}";
-            ScoreData.CurrentScoreData[LevelNumber-1] = 0;
+            _gameRoot.Q<Label>("HighScore").text = $"High score: {gameData.HighScoreData[LevelNumber-1]}";
+            gameData.CurrentScoreData[LevelNumber-1] = 0;
             ShowInterfaceGame();
             GameManager.IsGameStarted = false;
         }
@@ -499,8 +500,8 @@ namespace _Scripts.Controllers
                 SceneManager.LoadScene($"Level2");
             }
             GameManager.PlayerLives = 3;
-            _gameRoot.Q<Label>("HighScore").text = $"High score: {ScoreData.HighScoreData[LevelNumber-1]}";
-            ScoreData.CurrentScoreData[LevelNumber-1] = 0;
+            _gameRoot.Q<Label>("HighScore").text = $"High score: {gameData.HighScoreData[LevelNumber-1]}";
+            gameData.CurrentScoreData[LevelNumber-1] = 0;
             ShowInterfaceGame();
             GameManager.IsGameStarted = false;
         }
@@ -515,8 +516,8 @@ namespace _Scripts.Controllers
                 SceneManager.LoadScene($"Level3");
             }
             GameManager.PlayerLives = 3;
-            _gameRoot.Q<Label>("HighScore").text = $"High score: {ScoreData.HighScoreData[LevelNumber-1]}";
-            ScoreData.CurrentScoreData[LevelNumber-1] = 0;
+            _gameRoot.Q<Label>("HighScore").text = $"High score: {gameData.HighScoreData[LevelNumber-1]}";
+            gameData.CurrentScoreData[LevelNumber-1] = 0;
             ShowInterfaceGame();
             GameManager.IsGameStarted = false;
         }
@@ -531,8 +532,8 @@ namespace _Scripts.Controllers
                 SceneManager.LoadScene($"Level4");
             }
             GameManager.PlayerLives = 3;
-            _gameRoot.Q<Label>("HighScore").text = $"High score: {ScoreData.HighScoreData[LevelNumber-1]}";
-            ScoreData.CurrentScoreData[LevelNumber-1] = 0;
+            _gameRoot.Q<Label>("HighScore").text = $"High score: {gameData.HighScoreData[LevelNumber-1]}";
+            gameData.CurrentScoreData[LevelNumber-1] = 0;
             ShowInterfaceGame();
             GameManager.IsGameStarted = false;
         }
@@ -547,8 +548,8 @@ namespace _Scripts.Controllers
                 SceneManager.LoadScene($"Level5");
             }
             GameManager.PlayerLives = 3;
-            _gameRoot.Q<Label>("HighScore").text = $"High score: {ScoreData.HighScoreData[LevelNumber-1]}";
-            ScoreData.CurrentScoreData[LevelNumber-1] = 0;
+            _gameRoot.Q<Label>("HighScore").text = $"High score: {gameData.HighScoreData[LevelNumber-1]}";
+            gameData.CurrentScoreData[LevelNumber-1] = 0;
             ShowInterfaceGame();
             GameManager.IsGameStarted = false;
         }
@@ -589,8 +590,8 @@ namespace _Scripts.Controllers
             if (_levelNumber<=5)
             {
                 GameManager.PlayerLives = 3;
-                _gameRoot.Q<Label>("HighScore").text = $"High score: {ScoreData.HighScoreData[LevelNumber-1]}";
-                ScoreData.CurrentScoreData[LevelNumber-1] = 0;
+                _gameRoot.Q<Label>("HighScore").text = $"High score: {gameData.HighScoreData[LevelNumber-1]}";
+                gameData.CurrentScoreData[LevelNumber-1] = 0;
                 HideAllScreens();
                 _gameRoot.style.display = DisplayStyle.Flex;
                 SceneManager.LoadScene($"Level{_levelNumber}");
