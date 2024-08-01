@@ -2,7 +2,7 @@
     <Style src="project://database/Assets/Scripts/Ui/Winner/Winner.uss?fileID=7433441132597879392&amp;guid=706308fb3598344cfaad67113b6eb8ef&amp;type=3#Winner" />
     <engine:VisualElement name="Container" xml:id="Container" class="Container">
         <engine:VisualElement name="Header" xml:id="Header" class="Header" >
-            <engine:Label text="Your score: 0" name="Score" xml:id="Score" />
+            <engine:Label text="Your score: 0" name="Score" xml:id="Score" class="Score" />
         </engine:VisualElement>
         <engine:VisualElement name="Body" xml:id="Body" class="Body">
             <engine:Label text="You win!!!" name="Message" xml:id="Message" class="Message" />

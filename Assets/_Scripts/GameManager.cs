@@ -1,5 +1,5 @@
 using _Scripts.Controllers;
-using Assets._Scripts;
+using _Scripts.Data;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UIElements;
@@ -117,8 +117,7 @@ namespace _Scripts
 
         private void Start()
         {
-            //loadData
-            //dataManager.LoadGameData();
+            dataManager.LoadGameData();
             for (var i = 0 ; i < 5 ; i++)
             {
                 _gameRoot.Q<Label>("HighScore").text = $"High score: {gameData.HighScoreData[UiController.LevelNumber-1]}";
@@ -137,6 +136,7 @@ namespace _Scripts
             {
                 gameData.HighScoreData[levelIndex] = gameData.CurrentScoreData[levelIndex];
                 _gameRoot.Q<Label>("HighScore").text = $"High score: {gameData.HighScoreData[levelIndex]}";
+                dataManager.SaveGameData();
             }
             if (_isInterfaceGameActive && _isGameStarted)
             {

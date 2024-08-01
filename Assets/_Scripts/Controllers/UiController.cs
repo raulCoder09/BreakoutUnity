@@ -1,7 +1,7 @@
+using _Scripts.Data;
 using GameObjects;
 using Ui.GameOver;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
@@ -10,6 +10,7 @@ namespace _Scripts.Controllers
     public class UiController : MonoBehaviour
     {
         [SerializeField] private GameData gameData;
+        [SerializeField] private DataManager dataManager;
         private static UIDocument _gameUIDocument;
         private static VisualElement _gameRoot;
         public static VisualElement GameRoot 
@@ -361,7 +362,7 @@ namespace _Scripts.Controllers
         {
             HideAllScreens();
             _loserRoot.Q<Label>("Score").text = $"Your score: {gameData.CurrentScoreData[LevelNumber-1]}";
-            _loserRoot.Q<Label>("HighScoreLevel").text = $"High score level: {LevelNumber}: {gameData.HighScoreData[LevelNumber-1]}";
+            _loserRoot.Q<Label>("HighScoreLevel").text = $"High score level {LevelNumber}: {gameData.HighScoreData[LevelNumber-1]}";
             _loserRoot.style.display = DisplayStyle.Flex;
             _loserUiActive = true;
         }
@@ -391,12 +392,14 @@ namespace _Scripts.Controllers
         {
             Ball.SpeedBall = evtNewValue;
             gameData.Speed = Ball.SpeedBall;
+            dataManager.SaveGameData();
         }
 
         private void ChangeMode(string evtNewValue)
         {
             GameManager.Mode=evtNewValue;
             gameData.Difficulty = GameManager.Mode;
+            dataManager.SaveGameData();
         }
         private void TryAgain()
         {
