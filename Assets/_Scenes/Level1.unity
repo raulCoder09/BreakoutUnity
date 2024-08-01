@@ -1117,6 +1117,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4023635624513426929, guid: 17ffdd04c51d04a0cab15a133b90d17b, type: 3}
+      propertyPath: gameData
+      value: 
+      objectReference: {fileID: 11400000, guid: 5bfe210d120989d4ebe93d926181d5df, type: 2}
+    - target: {fileID: 4023635624513426929, guid: 17ffdd04c51d04a0cab15a133b90d17b, type: 3}
       propertyPath: speedBall
       value: 20
       objectReference: {fileID: 0}

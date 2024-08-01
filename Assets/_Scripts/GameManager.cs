@@ -115,15 +115,7 @@ namespace _Scripts
             //loadData
             for (var i = 0 ; i < 5 ; i++)
             {
-                string key = $"HighScoreLevel{i}";
-                if (PlayerPrefs.HasKey(key))
-                {
-                    _gameRoot.Q<Label>("HighScore").text = $"High score: {gameData.HighScoreData[UiController.LevelNumber-1]}";
-                }
-                else
-                {
-                    gameData.HighScoreData[i] = 0; 
-                }
+                _gameRoot.Q<Label>("HighScore").text = $"High score: {gameData.HighScoreData[UiController.LevelNumber-1]}";
             }
             gameData.CurrentScoreData[UiController.LevelNumber-1] = 0;
             _gameRoot.Q<Label>("CurrentScore").text = $"Current score: {gameData.CurrentScoreData[UiController.LevelNumber-1]}";
@@ -139,7 +131,6 @@ namespace _Scripts
             {
                 gameData.HighScoreData[levelIndex] = gameData.CurrentScoreData[levelIndex];
                 _gameRoot.Q<Label>("HighScore").text = $"High score: {gameData.HighScoreData[levelIndex]}";
-                // PlayerPrefs.SetInt($"HighScoreLevel{levelIndex}",ScoreData.HighScoreData[levelIndex]);
             }
             if (_isInterfaceGameActive && _isGameStarted)
             {

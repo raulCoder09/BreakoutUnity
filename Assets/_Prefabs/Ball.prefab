@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5d90d6899bde4addae37eebcead786f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedBall: 10
+  gameData: {fileID: 11400000, guid: 5bfe210d120989d4ebe93d926181d5df, type: 2}
 --- !u!54 &231761558798106282
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ namespace GameObjects
 {
     public class Ball : MonoBehaviour
     { 
+        [SerializeField] private GameData gameData;
         private static float _speedBall = 25.0f;
 
         internal static float SpeedBall
@@ -64,6 +65,7 @@ namespace GameObjects
                     ResetBall();
                     _gameManager.RemoveLife();
                     GameManager.PlayerLives--;
+                    GameManager.UpdatePlayerLives(GameManager.PlayerLives, gameData);
                 }
 
                 if (_control.IsOutputUp)
