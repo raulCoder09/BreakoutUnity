@@ -14,7 +14,7 @@ namespace Assets._Scripts
             filePath = Path.Combine(Application.persistentDataPath,"gamedata.json");
         }
 
-        public void SaveGameData( )
+        internal void SaveGameData( )
         {
             GameDataSerializable data = new GameDataSerializable(gameData);
             string jsonData = JsonUtility.ToJson(data,true);
@@ -22,7 +22,7 @@ namespace Assets._Scripts
             Debug.Log("Game data saved to " + filePath);
         }
 
-        public void LoadGameData( )
+        internal void LoadGameData( )
         {
             if (File.Exists(filePath))
             {
