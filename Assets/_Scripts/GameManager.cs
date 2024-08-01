@@ -1,6 +1,7 @@
 using _Scripts.Controllers;
 using Assets._Scripts;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UIElements;
 
 namespace _Scripts
@@ -38,22 +39,12 @@ namespace _Scripts
         }
     
         private static byte _playerLives=3;
-
         internal static byte PlayerLives
         {
             get => _playerLives;
-            set
-            {
-                _playerLives = value;
-                if (_playerLives==0)
-                {
-                    Destroy(GameObject.Find("GameObjects"));
-                    UiController.ShowLoser(gameData);
-                    //ToDo game time
-                }
-            
-            }
+            set => _playerLives = value;
         }
+        
         private static bool _isInterfaceGameActive;
 
         internal static bool IsInterfaceGameActive
@@ -68,6 +59,16 @@ namespace _Scripts
         {
             get => _mode;
             set => _mode = value;
+        }
+        internal static void UpdatePlayerLives(byte lives, GameData gameData)
+        {
+            _playerLives = lives;
+            if (_playerLives == 0)
+            {
+                Destroy(GameObject.Find("GameObjects"));
+                UiController.ShowLoser(gameData);
+                //ToDo game time
+            }
         }
         private void Awake()
         {
@@ -174,7 +175,7 @@ namespace _Scripts
             }
             return uiDocument;
         }
-    
-    
     }
+
+
 }
