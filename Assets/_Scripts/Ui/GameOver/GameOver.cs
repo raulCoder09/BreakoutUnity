@@ -5,12 +5,12 @@ namespace Ui.GameOver
 {
     public class GameOver : MonoBehaviour
     {
-        internal static int TotalScore()
+        internal static int TotalScore(GameData gameData)
         {
             var totalScore = 0;
             for (var i = 0; i < 5; i++)
             {
-                totalScore +=ScoreData.CurrentScoreData[i];
+                totalScore += gameData.HighScoreData[i];
             }
             return totalScore;
         }

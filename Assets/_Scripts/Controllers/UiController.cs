@@ -118,10 +118,8 @@ namespace _Scripts.Controllers
             HideAllScreens();
             _welcomeRoot.style.display = DisplayStyle.Flex;
 
-            if (PlayerPrefs.HasKey("FinalScore"))
-            {
-                _gameOverRoot.Q<Label>("FinalScore").text = $"Your score: {PlayerPrefs.GetInt("FinalScore")}";
-            }
+            _gameOverRoot.Q<Label>("FinalScore").text = $"Your score: {gameData.FinalScore}";
+            
 
             if (PlayerPrefs.HasKey("ModeGame"))
             {
@@ -397,8 +395,8 @@ namespace _Scripts.Controllers
             {
                 SceneManager.LoadScene($"Level{_levelNumber}");
                 _gameOverRoot.style.display = DisplayStyle.Flex;
-                _gameOverRoot.Q<Label>("FinalScore").text = $"Your score: {GameOver.TotalScore()}";
-                PlayerPrefs.SetInt("FinalScore",GameOver.TotalScore());
+                _gameOverRoot.Q<Label>("FinalScore").text = $"Your score: {GameOver.TotalScore(gameData)}";
+                gameData.FinalScore = GameOver.TotalScore(gameData);
             }
 
         }
