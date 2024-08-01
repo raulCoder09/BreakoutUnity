@@ -108,11 +108,17 @@ namespace _Scripts
             {
                 DontDestroyOnLoad(controllers);
             }
+            var dataManagerObject = GameObject.Find("DataManager");
+            if (dataManagerObject != null)
+            {
+                DontDestroyOnLoad(dataManagerObject);
+            }
         }
 
         private void Start()
         {
             //loadData
+            //dataManager.LoadGameData();
             for (var i = 0 ; i < 5 ; i++)
             {
                 _gameRoot.Q<Label>("HighScore").text = $"High score: {gameData.HighScoreData[UiController.LevelNumber-1]}";
