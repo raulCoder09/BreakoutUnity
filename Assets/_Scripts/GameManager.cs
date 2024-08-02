@@ -117,7 +117,7 @@ namespace _Scripts
 
         private void Start()
         {
-            dataManager.LoadGameData();
+            //dataManager.LoadGameData();
             for (var i = 0 ; i < 5 ; i++)
             {
                 _gameRoot.Q<Label>("HighScore").text = $"High score: {gameData.HighScoreData[UiController.LevelNumber-1]}";
